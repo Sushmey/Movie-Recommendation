@@ -1,0 +1,57 @@
+{%extends 'layout.html' %}
+{% block content %}
+	<!-- Inputting part starts here -->
+	<!-- <div class="container py-2">
+		<form method="POST" action="">
+			<input type="text" value="movie" name="movie">
+			<button type="submit" name="submit_button" value="clicked">Submit</button>
+		</form>
+	</div> -->
+
+	<form method="POST" action="">
+			{{form.hidden_tag()}} <!-- Adds a CSRF token to protect from attacks -->
+			<fieldset class="py-2">
+				<div class="row">
+					<div class="col">
+						<div class="form-floating mb-3">
+								{{ form.movie(class="form-control form-control-lg", placeholder="Add the movie", required='required')}}
+							{{ form.movie.label}}
+							<small class="help-block py-1">
+								Enter movie name
+							</small>
+						</div>
+					</div>
+				</div>
+				<div class=row>
+					<div class="col">
+						<div class="form-check form-switch">
+							{{form.tfidf(class="form-check-input", value="tfidf")}}
+							{{form.tfidf.label(class="form-check-label")}}
+							<small class="help-block py-1">
+								Toggle for TF-IDF, Default is Bag-of-Words
+							</small>
+						</div>
+					</div>
+					<div class="col">
+
+					</div>
+				</div>
+			</fieldset>
+			<div class="d-flex flex-row">
+				<div class="form-group">
+					{{form.submit(class="btn btn-warning")}}
+				</div>
+			</div>
+</form>
+
+	<div class="container p-2">
+		<div class="container center border border-dark">
+			<table class="table">
+				{% for i in data %}
+							<tr><td>{{i}}</td></tr>
+				{% endfor %}	
+			</table>	
+		</div>
+	</div>
+{% endblock content%}
+
