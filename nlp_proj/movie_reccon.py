@@ -33,7 +33,7 @@ def get_recommendations(title,cosine_sim = cosine_sim):
     movie_indices = [i[0] for i in sim_scores] 
     return df2['title'].iloc[movie_indices]
 
-print(get_recommendations('The Godfather')) #tfidf
+# print(get_recommendations('The Godfather')) #tfidf
 
 
 ##################################################################################################################################
@@ -102,9 +102,9 @@ df2 = df2.reset_index()
 indices = pd.Series(df2.index, index=df2['title'])
 
 
-print("\n")
-print("------------------Bag-of-Words-------------------------------")
-print(get_recommendations('The Godfather',cosine_sim2)) #Bag-of-Words
+# print("\n")
+# print("------------------Bag-of-Words-------------------------------")
+# print(get_recommendations('The Godfather',cosine_sim2)) #Bag-of-Words
 
 
 
